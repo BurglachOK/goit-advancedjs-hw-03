@@ -12,7 +12,7 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 
-document.getElementById('search-form').addEventListener('submit', async event => {
+document.getElementById('form').addEventListener('submit', async event => {
   event.preventDefault();
   const query = document.getElementById('search-input').value.trim();
 
@@ -26,7 +26,6 @@ document.getElementById('search-form').addEventListener('submit', async event =>
 
   clearGallery();
   showLoader();
-
   try {
     const data = await fetchImages(query);
 
@@ -59,6 +58,6 @@ function showLoader() {
 function hideLoader() {
   const loader = document.querySelector('.loader');
   if (loader) {
-    loader.remove();
+    refs.loader.classList.remove('is-loaded');
   }
 }
